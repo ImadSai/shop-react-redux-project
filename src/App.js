@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import PhoneComponent from './components/PhoneComponent';
+import TabletComponent from './components/TabletComponent';
+import TvComponent from './components/TvComponent';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="row">
+        <div className="col-md-4"><PhoneComponent /></div>
+        <div className="col-md-4"><TabletComponent /></div>
+        <div className="col-md-4"><TvComponent /></div>
+      </div>
+    </Provider>
   );
 }
 
