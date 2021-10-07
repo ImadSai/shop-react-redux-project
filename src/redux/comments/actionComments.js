@@ -21,13 +21,13 @@ export const loadCommentsError = (error) => {
     }
 };
 
-export const apiCall = () => {
+export const apiCall = (start) => {
 
     return dispatch => {
 
         dispatch(loadComments());
 
-        axios.get('https://jsonplaceholder.typicode.com/comments').then(response => {
+        axios.get(`https://jsonplaceholder.typicode.com/comments?_start=${start}&_limit=10`).then(response => {
             setTimeout(() => {
                 dispatch(loadCommentsSuccess(response.data));
             }, 3000);

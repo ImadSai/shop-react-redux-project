@@ -19,7 +19,7 @@ function App() {
         </div>
 
         {/* Comments */}
-        <div className="row justify-content-md-center">
+        <div className="row">
           <CommentsComponent />
         </div>
       </div>

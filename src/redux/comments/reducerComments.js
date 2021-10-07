@@ -7,6 +7,7 @@ const initialStateComments = {
 }
 
 const commentsReducer = (state = initialStateComments, action) => {
+
     if (action.type === LOAD_COMMENTS) {
         return {
             ...state,
@@ -18,7 +19,7 @@ const commentsReducer = (state = initialStateComments, action) => {
         return {
             ...state,
             isLoading: false,
-            comments: action.payload,
+            comments: state.comments.concat(action.payload),
             error: ''
         }
     }
