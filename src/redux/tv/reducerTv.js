@@ -8,7 +8,7 @@ const tvReducer = (state = initialStateTv, action) => {
     if (action.type === BUY_TV) {
         return {
             ...state,
-            tv: state.tv - 1
+            tv: state.tv - parseInt(action.desiredTvs)
         }
     }
 

@@ -1,8 +1,9 @@
 import { BUY_TV } from "./type";
 
-export const buyTv = () => {
+export const buyTv = (desiredTvs) => {
     return {
-        type: BUY_TV
+        type: BUY_TV,
+        desiredTvs
     }
 };
 
