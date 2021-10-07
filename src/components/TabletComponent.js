@@ -1,9 +1,12 @@
 import React from 'react';
 import tablet from '../images/tablet.png';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { buyTablet } from "../redux/tablet/actionTablet";
 
-function TabletComponent(props) {
+function TabletComponent() {
+
+    const tabletCount = useSelector((state) => state.tabletReducer.tablet);
+    const dispatch = useDispatch();
 
     return (
         <div className="card" style={{ width: "300px", margin: "5px", padding: "10px" }}>
@@ -13,26 +16,12 @@ function TabletComponent(props) {
             <div className="card-body">
                 <p>
                     Disponibilité :
-                    <span id="count">{props.tablet}</span>
+                    <span id="count">{tabletCount}</span>
                 </p>
             </div>
-            <button className="btn btn-primary" onClick={() => props.buyTablet()}>Acheter</button>
-        </div>
+            <button className="btn btn-primary" onClick={() => dispatch(buyTablet())}>Acheter</button>
+        </div >
     )
 }
 
-// Importer le state et le passer en Props
-const mapStateToProps = (state) => {
-    return {
-        tablet: state.tabletReducer.tablet
-    }
-}
-
-// Map Dispatch Method to props
-const mapDispatchToProps = () => {
-    return {
-        buyTablet
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps())(TabletComponent);
+export default TabletComponent;
