@@ -25,14 +25,20 @@ export const apiCall = (start) => {
 
     return dispatch => {
 
+        // Dispatch action load comments
         dispatch(loadComments());
 
+        // Get comments
         axios.get(`https://jsonplaceholder.typicode.com/comments?_start=${start}&_limit=10`).then(response => {
+
             setTimeout(() => {
                 dispatch(loadCommentsSuccess(response.data));
-            }, 3000);
+            }, 1500);
+
         }).catch(error => {
+
             dispatch(loadCommentsError(error.message));
+
         });
     };
 

@@ -7,6 +7,7 @@ import store from './redux/store';
 import CommentsComponent from './components/CommentsComponent';
 
 function App() {
+
   return (
     <Provider store={store}>
       <div className="container">
@@ -22,6 +23,7 @@ function App() {
         <div className="row">
           <CommentsComponent />
         </div>
+
       </div>
     </Provider>
   );
